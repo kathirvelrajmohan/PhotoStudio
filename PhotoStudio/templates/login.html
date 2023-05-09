@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{%block content %}
+{% if messages %}
+  {% for msg in messages%}
+    <h2>{{msg}}</h2>
+  {% endfor %}
+  {% endif %}
+  <div class="container col-md-6">
+    <h1>Login Form</h1>
+    <form method="post" action = "">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p>Create an Account <a href = "{% url 'register' %}">click here</a></p>
+  </div>
+  <script src="../static/js/bootstrap.bundle.min.js"></script>
+{%endblock%}

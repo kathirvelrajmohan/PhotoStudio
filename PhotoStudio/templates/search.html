@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{%block content%}
+{% include 'navbar.html' %}
+
+  <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for photo in photos %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{photo.image.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{photo.title}}</h5>
+            <p class="card-text">Category: {{photo.categories}}</p>
+            <p class="card-text">Uploaded by: {{photo.user}}</p>
+          </div>
+          <div class="card-footer">
+            <div class="btn-group" role="group">
+              <a href="{% url 'view-photo' photo.id %}" class="btn btn-outline-success">View</a>
+              <a href="{% url 'update' photo.id %}" class="btn btn-outline-primary">Update</a>
+              <a href="{% url 'delete' photo.id %}" class="btn btn-outline-danger">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <h2>No photos</h2>
+      {% endfor %}
+    </div>
+  </div>
+{%endblock%}
