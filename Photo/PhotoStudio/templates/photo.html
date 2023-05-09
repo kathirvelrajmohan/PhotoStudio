@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class = "mx-5 my-3">
+    <a href="{% url 'home' %}" class = "btn btn-primary mb-4">Go bacK</a>
+    <h2>{{photos.title}}</h2>
+    <h6>uploaded by {{photos.user}}</h6>
+    <h4>Description</h4>
+    <p>{{photos.description}}</p>
+    <p>category: {{photos.categories}}</p>
+    <div class = "preview-img mt-5 mb-5">
+        <img src="{{photos.image.url}}" class = "img-fluid p-5" alt="Responsive image">
+    </div>
+
+</div>
+
+{%endblock%}
